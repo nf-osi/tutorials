@@ -1,0 +1,77 @@
+---
+title: "Analysis Workshop"
+author: "NF-OSI Staff"
+date: "2024-06-22"
+output:
+  ioslides_presentation:
+    widescreen: true
+---
+
+# Part II
+
+## This Workshop Section
+
+- Quick contextual overview (10 min)
+- cBioPortal (20 min)
+- Code examples (30 min)
+- Questions, discussions, technical support (20 min)
+
+<div class="notes"> 
+
+Hi, this is the second part of the workshop. We have showcased some CTF data and analysis and, in this part, we are going to complement that with something more focused on NTAP data.
+
+However, this is only a quick exploratory analysis/overview. There are situations when you might want to explore the original raw data or just do more with the processed data than you can in the current system. 
+
+The point of this is that while we have some processed data outside the NF Data Portal, there are the usual benefits and limitations: it can give you some insights without much work but if you want to reuse the data to do more original extensive custom analyses, you should be motivated to go Synapse and get this data. What analysis looks like can vary and depends on your use case. Here’s an analogy for this:
+
+Think of the data visualizations in cBioPortal as a pre-made meal kit. The ingredients are already measured, chopped, and packaged so you get something quick. On the other hand, at some point, you might want to make a custom recipe from scratch, though with the same data ingredients. But in your custom recipe, you can get ingredients in a different form and apply techniques that can yield results more helpful to your purpose. So something like cBioPortal can give you a taste and be filling enough but sometimes you want to go to Synapse to download and work with the raw data akin to shopping for each ingredient yourself and going with your own recipe to make something from scratch.
+
+Reminder: just because we’re showing analysis with genomics data doesn’t mean we don’t have other data types. For example, there is a lot of imaging data that we won’t be able to represent today.
+</div>
+
+## Contextual Overview
+
+<div class="notes"> 
+Let's tie this workshop back to a highly relevant webinar we have done earlier, that some of you may have attended.
+</div>
+
+```{r}
+
+
+```
+
+## Analysis Environments
+
+
+
+
+<div class="notes">
+- **Reiterate: not being prescriptive, just trying to inform**
+- Synapse open to different compute solutions, but integration takes a lot of engineering effort
+- More options = more chances of success for different types of users
+- Why we're showing different solutions today
+</div>
+
+## cBioPortal
+
+<div class="notes">
+First, we are going to use some data that is already visualized outside the NF Data Portal (in cBioPortal). This is the NTAP-funded JHU data in cBioPortal. We’ll show you what you can do in cBioportal.
+
+1. Basic clinical summary of cohort (male vs female) cancer types – Synapse can be used for similar simple cohort visualization tools per dataset but you would have to configure it yourself.
+2. Quickly check individuals/samples with a specific mutation in Gene X (Mutated Genes panel).
+3. Get quick stats on nonsynonymous tumor mutational burden (TMB) – the total number of nonsynonymous mutations per coding area of a tumor genome is a biomarker and sometimes useful for immunotherapy.
+4. Download clinical data through the UI.
+5. Download the processed cBioPortal dataset by following the Synapse link.
+</div>
+
+
+<div class="notes"> 
+Exit slide presentation here to look at Rmarkdown.
+</div>
+
+### Code part
+
+```{r setup-code-part}
+
+
+```
