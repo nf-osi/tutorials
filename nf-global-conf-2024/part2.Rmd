@@ -45,19 +45,20 @@ read_logo <- function(filename) {
 }
 
 logos <- list(
-  list(file = "resources/aws_logo.png", x = 0.1, y = 0.8),
-  list(file = "resources/azure_logo.png", x = 0.1, y = 0.6),
-  list(file = "resources/gcp_logo.png", x = 0.1, y = 0.4),
-  list(file = "resources/palantir_logo.png", x = 0.3, y = 0.5),
-  list(file = "resources/cavatica_logo.png", x = 0.5, y = 0.6),
-  list(file = "resources/cbioportal_logo.png", x = 0.75, y = 0.8),
-  list(file = "resources/codeocean_logo.png", x = 0.5, y = 0.38),
-  list(file = "resources/pharmacodb_logo.png", x = 0.9, y = 0.65),
-  list(file = "resources/plutobio_logo.png", x = 0.7, y = 0.5) 
+  aws = list(file = "resources/aws_logo.png", x = 0.1, y = 0.8),
+  azure = list(file = "resources/azure_logo.png", x = 0.1, y = 0.6),
+  gcp = list(file = "resources/gcp_logo.png", x = 0.1, y = 0.4),
+  palantir = list(file = "resources/palantir_logo.png", x = 0.3, y = 0.5),
+  cavatica = list(file = "resources/cavatica_logo.png", x = 0.5, y = 0.6),
+  cbioportal = list(file = "resources/cbioportal_logo.png", x = 0.75, y = 0.8),
+  codeocean = list(file = "resources/codeocean_logo.png", x = 0.5, y = 0.38),
+  pharmacodb = list(file = "resources/pharmacodb_logo.png", x = 0.9, y = 0.65),
+  plutobio = list(file = "resources/plutobio_logo.png", x = 0.7, y = 0.5),
+  colab = list(file = "resources/colab_logo.png", x = 0.5, y = 0.8) 
 )
 ```
 
-```{r tools-spectrum, out.width="100%", echo=FALSE}
+```{r tools-spectrum, out.width="100%", echo=FALSE, cache=FALSE}
 gradient_df <- data.frame(
   x = seq(0, 1, length.out = 100),
   y = rep(1, 100),
@@ -98,13 +99,29 @@ But ultimately, more options = more chances of success for different types of re
 Why we're showing different solutions today!
 </div>
 
-## cBioPortal
+## Previous Analysis in Cavatica
+
+<div class="notes">
+So in the previous session, you did analysis in Cavatica.
+</div>
+
+```{r here-cavatica, out.width="100%", echo=FALSE}
+
+p + geom_rect(aes(
+  xmin = logos$cavatica$x - 0.15, xmax = logos$cavatica$x + 0.15, 
+  ymin = logos$cavatica$y - 0.05, ymax = logos$cavatica$y + 0.05), 
+  color = "red", fill = NA, linewidth = 1)
+
+
+```
+
+## Now: Exploratory Analysis in cBioPortal
 
 ```{r here-at-cbioportal, out.width="100%", echo=FALSE}
-cbioportal_pos <- list(xmin = 0.65, xmax = 0.85, ymin = 0.72, ymax = 0.85)
+
 p + geom_rect(aes(
-  xmin = cbioportal_pos$xmin, xmax = cbioportal_pos$xmax, 
-  ymin = cbioportal_pos$ymin, ymax = cbioportal_pos$ymax), 
+  xmin = logos$cbioportal$x - 0.1, xmax = logos$cbioportal$x + 0.1, 
+  ymin = logos$cbioportal$y - 0.05, ymax = logos$cbioportal$y + 0.05), 
   color = "red", fill = NA, linewidth = 1)
 ```
 
@@ -140,43 +157,72 @@ it can give you some insights without much work but if you want to reuse the dat
 Now we're going to move to a different part of the spectrum to a more flexible analysis environment. 
 </div>
 
-## Next Up: More Flexible Analysis in X
 
-```{r here-at-more-flexible-env, out.width="100%", echo=FALSE}
+## Now: Analysis in X
 
-# cavatica?
-new_pos <- list(xmin = 0.3, xmax = 0.68, ymin = 0.55, ymax = 0.65)
+```{r here-x, out.width="100%", echo=FALSE}
+
+# Not sure whether X will be Colab or Codeocean, use Colab unless we get access to Codeocean
+new_pos <- logos$colab
+
 p + geom_rect(aes(
-  xmin = new_pos$xmin, xmax = new_pos$xmax, 
-  ymin = new_pos$ymin, ymax = new_pos$ymax), 
+  xmin = new_pos$x - 0.1, xmax = new_pos$x + 0.1, 
+  ymin = new_pos$y - 0.08, ymax = new_pos$y + 0.08), 
   color = "red", fill = NA, linewidth = 1)
+
 
 ```
 
 <div class="notes"> 
-**EXIT SLIDE PRESENTATION HERE TO LOOK AT RMARKDOWN.**
+**EXIT SLIDE PRESENTATION HERE TO GO TO X**
 </div>
 
-## Creating a dataset
-
-Use Synapse's R client, `synapser`.
-```{r}
-
-
-```
-
-
-
-```{r}
-
-
-```
 
 ## Debrief X
 
-- As a user, saw the couple of additional steps needed for connecting/loading the data into environment
-- Learned basics of getting data from Synapse
-- Learned basics of how to use this particular compute environment and its features
+- Understand raw data and metadata organization in Synapse
+- Learned simple steps of how to connect/load the data into a particular analysis environment
+- Learned basics of how to use this particular analysis environment and its features
+- Learned basics of collaborative and reproducible science
 
+## Summary of Analysis Approaches Covered
 
+<div class="notes"> 
+We were able to cover a lot of different analysis environments and tools in this workshop!
+Analysis environment: Cavatica, cBioPortal, <Google Colab or Code Ocean>
+Packages: synapseclient, <name of Bioconductor package in other part>, TumorDecon
+Languages: R and Python
+</div>
 
+```{r, out.width="100%", echo=FALSE}
+summary_p <- ggplot() +
+  theme_void() +
+  xlim(0, 1) + ylim(0, 1)
+
+scale2 <- 1.5
+
+for (logo in logos[c("cavatica", "cbioportal", "colab")]) {
+  summary_p <- summary_p + 
+    annotation_custom(
+      read_logo(logo$file),  
+      xmin = logo$x - scale_factor / scale2,
+      xmax = logo$x + scale_factor / scale2,
+      ymin = logo$y - scale_factor / scale2, 
+      ymax = logo$y + scale_factor / scale2)
+}
+
+# Add language logos
+summary_p <- summary_p +
+   annotation_custom(read_logo("resources/r_logo.png"), xmin = 0.15, xmax = 0.3, ymin = 0.5,  ymax = 0.7) +
+   annotation_custom(read_logo("resources/python_logo.png"), xmin = 0.6, xmax = 0.9, ymin = 0.4,  ymax = 0.7)
+
+# TODO: Add package names?
+
+summary_p
+
+```
+
+<div class="notes">
+Final motivating thought: sharing data reflects optimism about human ingenuity for
+advancing computational methods to process, integrate data in more effective ways to unlock new insights.   
+</div>
