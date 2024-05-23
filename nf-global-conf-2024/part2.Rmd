@@ -120,7 +120,7 @@ First, we are going to use some data that is already visualized outside the NF D
 </div>
 
 <div class="notes"> 
-Exit slide presentation here to look at Rmarkdown.
+**SWITCH FROM SLIDE PRESENTATION HERE TO GO TO CBIOPORTAL.**
 </div>
 
 ## Debrief cBioPortal
@@ -152,6 +152,10 @@ p + geom_rect(aes(
   color = "red", fill = NA, linewidth = 1)
 
 ```
+
+<div class="notes"> 
+**EXIT SLIDE PRESENTATION HERE TO LOOK AT RMARKDOWN.**
+</div>
 
 ## Creating a dataset
 
