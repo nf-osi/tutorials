@@ -7,6 +7,13 @@ output:
     widescreen: true
 ---
 
+```{r setup-pkgs, include=FALSE}
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(png)
+```
+
 # Part II
 
 ## This Workshop Section
@@ -32,27 +39,81 @@ Reminder: just because we’re showing analysis with genomics data doesn’t mea
 ## Contextual Overview
 
 <div class="notes"> 
-Let's tie this workshop back to a highly relevant webinar we have done earlier, that some of you may have attended.
+If some of you attended a previous webinar we did called "NF Data Exploration Made Easy", you might recognize this. 
+This workshop is a continuation of that theme, to facilitate data exploration by showing you different tools as well as a bit of training to encourage more flexible explorations. 
+So here is the context and the tie-in.
 </div>
 
-```{r}
+```{r tools-spectrum-funs, include=FALSE}
+read_logo <- function(filename) {
+  img <- readPNG(filename)
+  rasterGrob(img, interpolate = TRUE)
+}
 
+logos <- list(
+  list(file = "resources/aws_logo.png", x = 0.1, y = 0.8),
+  list(file = "resources/azure_logo.png", x = 0.1, y = 0.6),
+  list(file = "resources/gcp_logo.png", x = 0.1, y = 0.4),
+  list(file = "resources/palantir_logo.png", x = 0.3, y = 0.5),
+  list(file = "resources/cavatica_logo.png", x = 0.5, y = 0.6),
+  list(file = "resources/cbioportal_logo.png", x = 0.75, y = 0.8),
+  list(file = "resources/codeocean_logo.png", x = 0.5, y = 0.38),
+  list(file = "resources/pharmacodb_logo.png", x = 0.9, y = 0.65),
+  list(file = "resources/plutobio_logo.png", x = 0.7, y = 0.5) 
+)
+```
 
+```{r tools-spectrum, out.width="100%", echo=FALSE}
+gradient_df <- data.frame(
+  x = seq(0, 1, length.out = 100),
+  y = rep(1, 100),
+  fill = seq(0, 1, length.out = 100)
+)[-c(1,100), ]
+
+p <- ggplot() +
+  theme_void() + # Remove axes and background
+  xlim(0, 1) + ylim(0, 1) + # Set x and y limits
+  geom_tile(data = gradient_df, aes(x = x, y = 0.95, fill = fill), height = 0.03) +
+  scale_fill_gradient(low = "navy", high = "red", guide="none") +
+  annotate("text", x = c(0.1, 0.3, 0.5, 0.7, 0.9), y = 0.9, label = c("1", "2", "3", "4", "5"), size = 6) + # Add labels
+  annotate("text", x = 0.1, y = 1, label = "Flexible (but complex)", size = 4, hjust = 0) + # Add labels
+  annotate("text", x = 0.9, y = 1, label = "Usable (very specific tasks)", size = 4, hjust = 1)
+
+scale_factor <- 0.24
+
+# Add logos to the plot with increased size
+for (logo in logos) {
+  p <- p + annotation_custom(read_logo(logo$file), 
+                             xmin = logo$x - scale_factor / 2, 
+                             xmax = logo$x + scale_factor / 2, 
+                             ymin = logo$y - scale_factor / 2, 
+                             ymax = logo$y + scale_factor / 2)
+}
+
+p
 ```
 
 ## Analysis Environments
 
-
-
-
-<div class="notes">
-- **Reiterate: not being prescriptive, just trying to inform**
-- Synapse open to different compute solutions, but integration takes a lot of engineering effort
-- More options = more chances of success for different types of users
-- Why we're showing different solutions today
+<div class="notes"> 
+This is a more detailed landscape comparison of the previous slide.
+What we've added is how well these platforms connect to the data on Synapse, and what it might cost you (time/effort/money) to get data to this environment and work in it. 
+**Reiterate: we're not being prescriptive, just trying to inform about where things at are currently**.
+Synapse very open to different compute solutions, and we're working on more, it's just that things move slowly because take a lot of engineering effort.
+But ultimately, more options = more chances of success for different types of researchers.  
+Why we're showing different solutions today!
 </div>
 
 ## cBioPortal
+
+```{r here-at-cbioportal, out.width="100%", echo=FALSE}
+cbioportal_pos <- list(xmin = 0.65, xmax = 0.85, ymin = 0.72, ymax = 0.85)
+p + geom_rect(aes(
+  xmin = cbioportal_pos$xmin, xmax = cbioportal_pos$xmax, 
+  ymin = cbioportal_pos$ymin, ymax = cbioportal_pos$ymax), 
+  color = "red", fill = NA, linewidth = 1)
+```
+
 
 <div class="notes">
 First, we are going to use some data that is already visualized outside the NF Data Portal (in cBioPortal). This is the NTAP-funded JHU data in cBioPortal. We’ll show you what you can do in cBioportal.
@@ -64,14 +125,28 @@ First, we are going to use some data that is already visualized outside the NF D
 5. Download the processed cBioPortal dataset by following the Synapse link.
 </div>
 
-
 <div class="notes"> 
 Exit slide presentation here to look at Rmarkdown.
 </div>
 
-### Code part
+## Next Up: More Flexible Analysis in X
 
-```{r setup-code-part}
+```{r here-at-more-flexible-env, out.width="100%", echo=FALSE}
+
+# cavatica?
+new_pos <- list(xmin = 0.3, xmax = 0.68, ymin = 0.55, ymax = 0.65)
+p + geom_rect(aes(
+  xmin = new_pos$xmin, xmax = new_pos$xmax, 
+  ymin = new_pos$ymin, ymax = new_pos$ymax), 
+  color = "red", fill = NA, linewidth = 1)
+
+```
+
+## Creating a dataset
+
+```{r}
 
 
 ```
+
+
