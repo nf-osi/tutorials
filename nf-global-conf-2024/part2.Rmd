@@ -257,9 +257,10 @@ summary_p
 
 - Understand raw data and metadata organization in Synapse
 - Learned basics of how to get data from Synapse
-- Better understanding of the possibilities through more hands-on interaction
+- Better understanding of analysis possibilities through hands-on comparison and interaction
 - Better ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
-- Learned basics of collaborative and reproducible analysis
+- Where to start computationally to take advantage of category 3 analysis environments  
+- Basics of collaborative and reproducible analysis
 
 <div class="notes">
 Final motivating thought: sharing data reflects optimism about human ingenuity for
