@@ -14,7 +14,6 @@ library(gridExtra)
 library(png)
 ```
 
-# Part II
 
 ## This Workshop Section
 
@@ -160,6 +159,13 @@ Now we're going to move to a different part of the spectrum to a more flexible a
 
 ## Now: Analysis in X
 
+<div class="notes">
+- Make sure everyone has forked existing code
+- Set up environment variables
+- Run through blocks
+</div>
+
+
 ```{r here-x, out.width="100%", echo=FALSE}
 
 # Not sure whether X will be Colab or Codeocean, use Colab unless we get access to Codeocean
@@ -216,7 +222,7 @@ summary_p <- summary_p +
    annotation_custom(read_logo("resources/r_logo.png"), xmin = 0.15, xmax = 0.3, ymin = 0.5,  ymax = 0.7) +
    annotation_custom(read_logo("resources/python_logo.png"), xmin = 0.6, xmax = 0.9, ymin = 0.4,  ymax = 0.7)
 
-# TODO: Add package names?
+# TODO: Add package names and data types?
 
 summary_p
 
