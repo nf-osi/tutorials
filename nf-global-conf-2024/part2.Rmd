@@ -15,12 +15,33 @@ library(png)
 ```
 
 
-## This Workshop Section
+## Overall Workshop
 
-- Quick contextual overview (10 min)
-- cBioPortal (20 min)
-- Code examples (30 min)
-- Questions, discussions, technical support (20 min)
+### First third
+- Quick contextual overview (5 min)
+- Cavatica and Rstudio (30 min)
+
+### Second third
+- cBioPortal (10 min)
+- Google Colab and Python (20 min)
+
+### Last third
+- Questions and technical support (20 min)
+- Survey (5 min)
+
+## This workshop section
+
+### First third
+- Quick contextual overview (5 min)
+- Cavatica and Rstudio (30 min)
+
+### **Second third**
+- **cBioPortal (10 min)**
+- **Google Colab and Python (20 min)**
+
+### Last third
+- Questions and technical support (20 min)
+- Survey (5 min)
 
 <div class="notes"> 
 
