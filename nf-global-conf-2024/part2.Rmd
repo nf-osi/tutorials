@@ -259,7 +259,7 @@ summary_p
 - Learned basics of how to get data from Synapse
 - Better understanding of the possibilities through more hands-on interaction
 - Better ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
-- Learned basics of collaborative and reproducible science
+- Learned basics of collaborative and reproducible analysis
 
 <div class="notes">
 Final motivating thought: sharing data reflects optimism about human ingenuity for
