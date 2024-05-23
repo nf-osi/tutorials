@@ -29,7 +29,7 @@ We have showcased some CTF data and analysis and, in this part, we are going to 
 
 </div>
 
-## Contextual Overview
+## Contextual Overview of Analysis Options
 
 <div class="notes"> 
 If some of you attended a previous webinar we did called "NF Data Exploration Made Easy", you might recognize this. 
@@ -87,9 +87,11 @@ for (logo in logos) {
 p
 ```
 
-## Analysis Environments
 
-<div class="notes"> 
+
+<div class="notes">
+
+TODO
 This is a more detailed landscape comparison of the previous slide.
 What we've added is how well these platforms connect to the data on Synapse, and what it might cost you (time/effort/money) to get data to this environment and work in it. 
 **Reiterate: we're not being prescriptive, just trying to inform about where things at are currently**.
@@ -179,6 +181,10 @@ p + geom_rect(aes(
 
 ```
 
+## Go to X
+
+**Link to reproducible and interactive code in X**
+
 <div class="notes"> 
 **EXIT SLIDE PRESENTATION HERE TO GO TO X**
 </div>
@@ -186,12 +192,10 @@ p + geom_rect(aes(
 
 ## Debrief X
 
-- Understand raw data and metadata organization in Synapse
-- Learned simple steps of how to connect/load the data into a particular analysis environment
+- Learned simple steps of how to connect/load the data in this particular analysis environment
 - Learned basics of how to use this particular analysis environment and its features
-- Learned basics of collaborative and reproducible science
 
-## Summary of Analysis Approaches Covered
+## Summary of analysis approaches covered
 
 <div class="notes"> 
 We were able to cover a lot of different analysis environments and tools in this workshop!
@@ -227,6 +231,14 @@ summary_p <- summary_p +
 summary_p
 
 ```
+
+## Summary of general learnings
+
+- Understand raw data and metadata organization in Synapse
+- Learned basics of how to get data from Synapse
+- Better understanding of the possibilities through more hands-on interaction
+- Better ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
+- Learned basics of collaborative and reproducible science
 
 <div class="notes">
 Final motivating thought: sharing data reflects optimism about human ingenuity for
