@@ -212,6 +212,7 @@ Too much/too technical to go into, but some interesting points of comparison:
 1. Only requires existing Google account and free compute for up to 12 hours, may be easier to get started than Cavatica.
 2. Google Colab offers GPUs. In general, to get certain hardware (flexibility/configurability), you'd have to do analysis in a Category 1-3 environment.
 (Though this example doesn't even need GPUS.)
+3. Can also [open notebook from GitHub](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) (but let's just fork for the workshop).
 
 **SWITCH FROM SLIDE PRESENTATION HERE TO GO TO COLAB**
 
@@ -219,7 +220,7 @@ Too much/too technical to go into, but some interesting points of comparison:
 
 There are two *key* things we need to do to set up the analysis.
 This is not part of the analysis itself, but essential and realistic  
-(in fact, just like how 80% of data science is data prep.)
+(in fact, just like how 80% of data science is data prep).
 
 In Synapse, go to the datasets page. We want to show that, unlike with the Cavatica example, an alternative entrypoint is not files but datasets.
 You can find the dataset represented on cBioPortal through the search.
