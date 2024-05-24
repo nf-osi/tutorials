@@ -208,7 +208,7 @@ p + geom_rect(aes(
 - **Colab notebook**: 
 
 <div class="notes"> 
-Too much/too technical to go into, but some interesting points of comparison:
+Too much/too technical to go into with limited time, but good to know:
 1. Only requires existing Google account and free compute for up to 12 hours, may be easier to get started than Cavatica.
 2. Google Colab offers GPUs. In general, to get certain hardware (flexibility/configurability), you'd have to do analysis in a Category 1-3 environment.
 (Though this example doesn't even need GPUS.)
