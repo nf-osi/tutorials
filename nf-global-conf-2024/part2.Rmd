@@ -174,18 +174,14 @@ First, we are going to use some data that is already visualized outside the NF D
 ## Debrief cBioPortal
 
 - Appreciated that data was "pre-loaded" for analysis, no effort needed
-- Learned exploratory analysis features
+- Learned strengths of exploratory analysis and sharing features
 - Made aware that data not guaranteed to be most up-to-date
-- Informed on limitations for more custom computational analysis
+- Realized limitations for other use cases
 
 <div class="notes">
 You saw just now that cBioPortal is good for quick overview and certain types of exploratory analysis. 
-But there are situations when you might want to explore the original raw data or just do more with the processed data than you can in the current app. 
+But there are situations when you might want to explore the original raw data or even just do something slightly different with the processed data, where you are motivated to go Synapse to get the data. 
 
-While we have some processed data outside the NF Data Portal, there are the usual benefits and limitations: 
-it can give you some insights without much work but if you want to reuse the data to do more original and *flexible* analyses, you should be motivated to go Synapse and get this data. 
-
-Now we're going to move to a different part of the spectrum to a more flexible analysis environment. 
 </div>
 
 
@@ -203,7 +199,7 @@ p + geom_rect(aes(
 
 ```
 
-## Going to Google Colab
+## Go to Google Colab!
 
 - **Colab notebook**: 
 
@@ -240,8 +236,7 @@ Click on key icon at left. It'll open with an option for `Add new secret`.
 Go to your Synapse profile -> Personal Access Token -> generate one and copy it.
 Add a secret called `SYNAPSE_AUTH_TOKEN` and paste this in. Turn on the toggle of "Notebook access".
 
-Now running the notebook is the easy part.
-(Go through notebook, etc. etc.)
+Now running the notebook is the easy part, just make sure to run every block in order.
 
 </div>
 
@@ -249,7 +244,7 @@ Now running the notebook is the easy part.
 
 - Familiarized with variant of data access flow where there are additional requirements
 - Learned basics of how to connect/load the data in this particular analysis environment
-- Saw what analysis looks like in this particular analysis environment
+- Acquainted with what analysis looks like in Colab, particular features of Colab
 
 <div class="notes">
 Through the workshop exercise just now, you saw:
