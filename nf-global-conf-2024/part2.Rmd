@@ -294,13 +294,14 @@ summary_p
 
 ```
 
-## Summary of general learnings
+## Summary of workshop benefits
 
-- Primed on raw data and metadata organization and different data entrypoints in Synapse
-- Learned basics of how to get data from Synapse through UI or programmatically
+- Introduced to the different data entrypoints on the portal: global file browser, study-specific file browser, and datasets
+- Familiarized with how data and metadata are connected and organized
+- Learned basics of getting data from Synapse through UI or programmatically
 - Enlightened on analysis possibilities through hands-on comparison and interaction
 - Refined ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
-- Familiarized with different category 3-4 analysis environments  
+- Practiced with a variety of category 3-4 analysis environments  
 - Indoctrinated into collaborative and reproducible analysis
 
 <div class="notes">
