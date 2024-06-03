@@ -29,6 +29,15 @@ library(png)
 - Questions and technical support (20 min)
 - Survey (5 min)
 
+
+<div class="notes">
+Notes for Cavatica portion:
+- Send to Cavatica currently only works from the main fileview. 
+- Show how to search and select files, then click on top-right link to send data.
+- In Cavatica studio, understand what exactly was imported.
+</div>
+
+
 ## This workshop section
 
 ### First third
@@ -44,11 +53,11 @@ library(png)
 - Survey (5 min)
 
 <div class="notes"> 
-
 Hi, this is the second part of the workshop. 
-We have showcased some CTF data and analysis and, in this part, we are going to complement that with something more focused on NTAP data.
-
+We have showcased some CTF data and analysis and, in this part, we are going to complement that with something more focused on NTAP data. 
+This also introduces two different analysis options that you can compare with the Cavatica workflow.
 </div>
+
 
 ## Contextual Overview of Analysis Options
 
@@ -112,7 +121,7 @@ p
 
 <div class="notes">
 
-TODO
+TODO/OPTIONAL
 This is a more detailed landscape comparison of the previous slide.
 What we've added is how well these platforms connect to the data on Synapse, and what it might cost you (time/effort/money) to get data to this environment and work in it. 
 **Reiterate: we're not being prescriptive, just trying to inform about where things at are currently**.
@@ -164,34 +173,22 @@ First, we are going to use some data that is already visualized outside the NF D
 
 ## Debrief cBioPortal
 
-- Data was "pre-loaded" for analysis
-- Good for exploratory analysis
-- Not guaranteed to be most up-to-date
-- Can't do certain things
+- Appreciated that data was "pre-loaded" for analysis, no effort needed
+- Learned strengths of exploratory analysis and sharing features
+- Made aware that data not guaranteed to be most up-to-date
+- Realized limitations for other use cases
 
 <div class="notes">
 You saw just now that cBioPortal is good for quick overview and certain types of exploratory analysis. 
-But there are situations when you might want to explore the original raw data or just do more with the processed data than you can in the current app. 
+But there are situations when you might want to explore the original raw data or even just do something slightly different with the processed data, where you are motivated to go Synapse to get the data. 
 
-While we have some processed data outside the NF Data Portal, there are the usual benefits and limitations: 
-it can give you some insights without much work but if you want to reuse the data to do more original and *flexible* analyses, you should be motivated to go Synapse and get this data. 
-
-Now we're going to move to a different part of the spectrum to a more flexible analysis environment. 
 </div>
 
 
-## Now: Analysis in X
-
-<div class="notes">
-- Make sure everyone has forked existing code
-- Set up environment variables
-- Run through blocks
-</div>
-
+## Now: Analysis in Colab
 
 ```{r here-x, out.width="100%", echo=FALSE}
 
-# Not sure whether X will be Colab or Codeocean, use Colab unless we get access to Codeocean
 new_pos <- logos$colab
 
 p + geom_rect(aes(
@@ -202,27 +199,71 @@ p + geom_rect(aes(
 
 ```
 
-## Go to X
+## Go to Google Colab
 
-**Link to reproducible and interactive code in X**
+- [**Colab notebook**](https://colab.research.google.com/drive/1LyWwDNmcfzslUUTg94RUylIKC4U0J3-c?authuser=1)
+- Go to **File > Save a copy in Drive**
 
 <div class="notes"> 
-**EXIT SLIDE PRESENTATION HERE TO GO TO X**
+
+EXTRA NOTES, CAN SKIP, but good to know:
+1. Only requires existing Google account and free compute for up to 12 hours, may be easier to get started than Cavatica.
+2. Google Colab offers GPUs. In general, to get certain hardware (flexibility/configurability), you'd have to do analysis in a Category 1-3 environment.
+(Though this example doesn't even need GPUS.)
+3. Can also [open notebook from GitHub](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) (but let's just fork for the workshop).
+
+**SWITCH FROM SLIDE PRESENTATION HERE TO GO TO COLAB**
+
+**SETUP NOTES**
+
+There are two *key* things we need to do to set up the analysis.
+This is not part of the analysis itself, but essential and realistic  
+(in fact, just like how 80% of data science is data prep).
+
+In Synapse, go to the datasets page. We want to show that, unlike with the Cavatica example, an alternative entrypoint is not files but datasets.
+You can find the dataset represented on cBioPortal through the search.
+So we see this RNA-seq data. This is what we want.
+Click on it to go to the dataset home page. The first key thing is the "Request Access" at the top left.
+So you will *not* request access, don't copy what I'm doing, we just want to take you through the partial flow to show what it looks like.
+You see here the steps to accept the terms and then submit a data use statement.
+In fact, you can see what the data use statement looks like for this workshop (click on link to page with data use statements, point out workshop one).
+If you've gotten data from dbGaP, this should seem like a familiar idea, but definitely nicer UI and not quite as much work.
+It may take up to two weeks to get a confirmation.
+
+But let's say a couple of days later, you've gotten confirmation of access. 
+You're ready to analyze, let's go to our notebook.
+You are logged into your Google account and have forked the notebook.
+The second key thing now is to make sure you have Synapse credentials set up.
+Click on key icon at left. It'll open with an option for `Add new secret`.
+Go to your Synapse profile -> Personal Access Token -> generate one and copy it.
+Add a secret called `SYNAPSE_AUTH_TOKEN` and paste this in. Turn on the toggle of "Notebook access".
+
+Now running the notebook is the easy part, just make sure to run every block in order.
+
 </div>
 
+## Debrief Colab
 
-## Debrief X
+- Familiarized with variant of data access flow where there are additional requirements
+- Learned basics of how to connect/load the data in this particular analysis environment
+- Acquainted with what analysis looks like in Colab, particular features of Colab
 
-- Learned simple steps of how to connect/load the data in this particular analysis environment
-- Learned basics of how to use this particular analysis environment and its features
+<div class="notes">
+Through the workshop exercise just now, you saw:
+- A realistic example of accessing data with Conditions of Use.
+- How to typically set up Synapse credentials when getting data programmatically.
+- How to get data using the Python synapseclient (to compare against Cavatica's UI option and R examples)
+- How to run analysis notebook in Colab (very similar to Rmarkdown)
+</div>
 
 ## Summary of analysis approaches covered
 
 <div class="notes"> 
 We were able to cover a lot of different analysis environments and tools in this workshop!
-Analysis environment: Cavatica, cBioPortal, <Google Colab or Code Ocean>
+Analysis environments: Cavatica, cBioPortal, <Google Colab or Code Ocean>
 Packages: synapseclient, <name of Bioconductor package in other part>, TumorDecon
 Languages: R and Python
+And yes, there is no one way to do things, but you should now have some idea of the essentials.
 </div>
 
 ```{r, out.width="100%", echo=FALSE}
@@ -253,16 +294,18 @@ summary_p
 
 ```
 
-## Summary of general learnings
+## Summary of workshop benefits
 
-- Understand raw data and metadata organization in Synapse
-- Learned basics of how to get data from Synapse
-- Better understanding of analysis possibilities through hands-on comparison and interaction
-- Better ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
-- Where to start computationally to take advantage of category 3 analysis environments  
-- Basics of collaborative and reproducible analysis
+- Introduced to the different data entrypoints on the portal: global file browser, study-specific file browser, and datasets
+- Familiarized with how data and metadata are connected and organized
+- Learned basics of getting data from Synapse through UI or programmatically
+- Enlightened on analysis possibilities through hands-on comparison and interaction
+- Refined ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
+- Practiced with a variety of category 3-4 analysis environments  
+- Indoctrinated into collaborative and reproducible analysis
 
 <div class="notes">
-Final motivating thought: sharing data reflects optimism about human ingenuity for
-advancing computational methods to process, integrate data in more effective ways to unlock new insights.   
+Final motivating thoughts, closing remarks: 
+1. Collaborative and reproducible analysis demonstrated in this workshop made possible by data being shared on Synapse and not just stored locally in one location.
+2. Sharing data reflects optimism about human ingenuity to continually advance computational methods to process, integrate data to unlock new insights.   
 </div>
