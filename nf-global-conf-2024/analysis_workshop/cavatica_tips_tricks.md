@@ -6,7 +6,7 @@ Tips and tricks to be aware of for tech support:
 We almost always need network access for installing other packages, but it seems no-network is the default when creating a new project, leading to some issues that I encountered and might be especially confusing for other people. 
 ![image](https://github.com/nf-osi/tutorials/assets/32753274/71348891-69b8-4e9e-b0f3-f9e4b753edb0)
 
-### Be aware the installed packages are not persistent between sessions without some additional steps.
+### Be aware that installed packages are not persistent between sessions without some additional steps.
 That is, you'll often start a session and install a package that you need, do some work, and then stop the session.
 Stopping the session leads to a "saving" job that only saves the analysis files and _not_ the packages you installed.
 The next session will require reinstalling that package because it won't be able to be loaded with `library(somepackage)` (which is what you might have expected).
