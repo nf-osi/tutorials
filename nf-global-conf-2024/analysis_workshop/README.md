@@ -1,6 +1,8 @@
 ## Analysis workshop materials  
 
 
+![tme-role-immune-cells](https://github.com/nf-osi/tutorials/assets/32753274/64c5a272-1c37-4df2-a91f-e1de71af4141)
+
 This contains materials for a basic analysis with data on the NF data portal, primarily developed for the CTF-sponsored NF Global Conference 2024. 
 All are welcome to adapt/reuse! 
 For more context, see the .html presentation.
