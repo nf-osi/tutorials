@@ -3,7 +3,7 @@
 Tips and tricks to be aware of for tech support:
 
 ### Make sure project has network access and advise switching over if it doesn't.
-We almost always need network access for installing other packages, but it seems no-network is the default when creating a new project, leading to some issues that I encountered and might be especially confusing for other people.
+We almost always need network access for installing other packages, but it seems no-network is the default when creating a new project, leading to installation issues especially confusing to those who are not aware of the networking configuration at first.
 
 ![image](https://github.com/nf-osi/tutorials/assets/32753274/71348891-69b8-4e9e-b0f3-f9e4b753edb0)
 
