@@ -1,6 +1,6 @@
 ## Cavatica Tips and Tricks
 
-Tips and tricks to be aware of for tech support:
+Tips and tricks to be aware of for tech support time:
 
 ### Make sure project has network access and advise switching over if it doesn't.
 We almost always need network access for installing other packages, but it seems no-network is the default when creating a new project, leading to installation issues especially confusing to those who are not aware of the networking configuration at first.
