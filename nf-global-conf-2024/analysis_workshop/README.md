@@ -7,7 +7,7 @@ This contains materials for a basic analysis with data on the NF data portal, pr
 All are welcome to adapt/reuse! 
 For more context, see the .html presentation.
 
-The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations. 
+**The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations.** 
 (The one actually presented was `analysis.Rmd`.) 
 To help you better understand the differences and whether the demo material matches a scenario/learning objective you're interested in, here's a comparison table:
 
@@ -15,15 +15,15 @@ To help you better understand the differences and whether the demo material matc
 |                    | analysis.Rmd     | analysis.ipynb |
 | ----------------   | -------------    | ------------- |
 | Target demographic | useRs            |  Pythonistas  |
-| Target demo env   | [Cavatica](https://www.cavatica.org/), local  | [Google Colab](https://colab.research.google.com/)  |
+| Target demo env   | [Cavatica](https://www.cavatica.org/) Data Studio - [SB Bioinformatics - R 4.3.2 - BioC 3.18](https://docs.cavatica.org/docs/about-libraries-in-a-data-cruncher-analysis#rstudio)  | [Google Colab](https://colab.research.google.com/)  |
 | Example dataset   | [syn53140231](https://www.synapse.org/Synapse:syn53140231)  | [syn60263853](https://www.synapse.org/Synapse:syn60263853/datasets/)  |
 | Dataset data     | transcript-level quant.sf | gene-level quant.sf 
 | Dataset AR?     | no AR  | yes AR |
 | Dataset funder  | CTF  | NTAP  |
 | Primary package | [immunedeconv](https://github.com/omnideconv/immunedeconv)  | [TumorDecon](https://www.sciencedirect.com/science/article/pii/S2352711022000528) |
-| Analysis method | CIBERSORT  | CIBERSORT |
-| Code diff 1     | Slightly higher-level code because of reuse of available packages in richer ecosystem for some steps | Slightly lower-level code because having to implement helpers for lacking packages in ecosystem |
-| Code diff 2   | 3 example figures total based on ggplot2  | 1 example figure total based on seaborn |
+| Analysis method |  quanTIseq   | CIBERSORT |
+| Code diff 1     | Slightly higher-level code because of reuse of available packages in richer ecosystem for data wrangling | Slightly lower-level code because having to implement helpers for lacking packages in ecosystem |
+| Code diff 2   | 2 example figures total based on ggplot2  | 1 example figure total based on seaborn |
 
 
 Abbreviations:
