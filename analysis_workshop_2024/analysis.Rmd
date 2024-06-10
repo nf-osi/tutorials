@@ -89,7 +89,7 @@ abundance <- gx_matrices$abundance
 ```
 
 
-### Run CIBERSORT
+### Run analysis
 
 The available methods for human data in `immunedeconv` are:
 ```
