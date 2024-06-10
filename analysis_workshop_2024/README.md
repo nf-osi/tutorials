@@ -6,8 +6,8 @@
 This contains materials for a basic analysis with data on the NF data portal, primarily developed for the CTF-sponsored NF Global Conference 2024. 
 All are welcome to adapt/reuse!
 
-**The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations.** 
-The one actually presented was Cavatica `analysis.Rmd`. See accompanying recordings below.
+*The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations.* 
+**_The one actually presented was Cavatica `analysis.Rmd`. See accompanying recordings below._**
 To help you better understand the differences and whether the demo material matches a scenario/learning objective you're interested in, here's a comparison table:
 
 
