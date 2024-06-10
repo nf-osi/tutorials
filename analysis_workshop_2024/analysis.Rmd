@@ -209,7 +209,7 @@ specific_cell_type_data <- data_long %>%
   filter(cell_type == cell_type_of_interest)
 
 # Perform t-test
-t_test_result <- t.test(fraction ~ group, data = neutrophil_data)
+t_test_result <- t.test(fraction ~ group, data = specific_cell_type_data)
 
 # Print the t-test result
 print(t_test_result)
