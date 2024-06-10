@@ -33,8 +33,8 @@ Abbreviations:
 
 ## Accompanying recordings
 
-1. Setting up NF Data portal data for Cavatica: <publicly available after workshop>
-2. `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
+1. (6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
+2. (18 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
 
 ## License
 
