@@ -135,7 +135,7 @@ But cutaneous neurofibroma is relatively rare and unlikely to be included in the
 
 library(ggplot2)
 library(reshape2)
-
+library(magrittr)
 
 data_long <- melt(result, 
                   variable.name = "sample", 
@@ -165,7 +165,7 @@ Hmisc::describe(clinical)
 ```
 
 Diagnosis, NF1.Genotype, NF2.Genotype, etc. are the same, so we're not really doing a cross-disease/tumor-type comparison. 
-But it looks like there are are multiple tumors per individual.
+But it looks like there are multiple tumors per individual.
 ```{r}
 # Let's actually rename individualID to sampleID and separate out the individual and tumor
 clinical$sampleID <- clinical$individualID
