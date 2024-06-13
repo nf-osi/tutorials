@@ -36,10 +36,14 @@ Abbreviations:
 
 ## Accompanying recordings
 
-(these have audio, while the ones embeded in the presentation do not)
+### Cavatica
+(these have audio, while the ones embedded in the presentation do not)
 
-1. (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
-2. (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
+- (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
+- (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
+
+### Other 
+- (~8 min) General `synapser` installation: <publicly available after workshop> 
 
 ## License
 
