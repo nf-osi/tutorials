@@ -8,7 +8,7 @@ This contains materials for a basic analysis with data on the NF data portal, or
 
 👉 [**original workshop presentation**](https://docs.google.com/presentation/d/1aUJKIpoyX8ru4F3DUMbxFmSGBQNjVCje1zIA4uw489E/edit?usp=drive_link).
 
-All are welcome to adapt/reuse!
+This **code** is available for adaption and reuse.
 
 *The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations.* 
 **_The one actually presented was Cavatica `analysis.Rmd`. See [links to accompanying recordings](#accompanying-recordings) below._**
