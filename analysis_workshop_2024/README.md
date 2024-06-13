@@ -27,7 +27,7 @@ To help you better understand the differences and whether the demo material matc
 | Primary package | [immunedeconv](https://github.com/omnideconv/immunedeconv)  | [TumorDecon](https://www.sciencedirect.com/science/article/pii/S2352711022000528) |
 | Analysis method |  quanTIseq   | CIBERSORT |
 | Code diff 1     | Slightly higher-level code because of reuse of available packages in richer ecosystem for data wrangling | Slightly lower-level code because having to implement helpers for lacking packages in ecosystem |
-| Code diff 2   | 2 example figures total based on ggplot2  | 1 example figure total based on seaborn |
+| Code diff 2   | 3 example figures total based on ggplot2  | 1 example figure total based on seaborn |
 
 
 Abbreviations:
