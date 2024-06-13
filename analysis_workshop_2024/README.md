@@ -34,6 +34,8 @@ Abbreviations:
 
 - **AR**: Access Restriction
 
+The **yes AR** scenario suggests a dependency for additional walk-through of getting access before using this material.
+
 ## Accompanying recordings
 
 ### Cavatica
