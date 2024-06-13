@@ -5,7 +5,9 @@
 ![tme-role-immune-cells](https://github.com/nf-osi/tutorials/assets/32753274/64c5a272-1c37-4df2-a91f-e1de71af4141)
 
 This contains materials for a basic analysis with data on the NF data portal, originally developed for the CTF-sponsored NF Global Conference 2024.
-:point-right: [**original workshop presentation**](https://docs.google.com/presentation/d/1aUJKIpoyX8ru4F3DUMbxFmSGBQNjVCje1zIA4uw489E/edit?usp=drive_link).
+
+👉 [**original workshop presentation**](https://docs.google.com/presentation/d/1aUJKIpoyX8ru4F3DUMbxFmSGBQNjVCje1zIA4uw489E/edit?usp=drive_link).
+
 All are welcome to adapt/reuse!
 
 *The basic analysis idea, tumor deconvolution, is the same but we have two versions in R and Python as somewhat different implementations.* 
@@ -33,6 +35,8 @@ Abbreviations:
 - **AR**: Access Restriction
 
 ## Accompanying recordings
+
+(these have audio, while the ones embeded in the presentation do not)
 
 1. (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
 2. (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
