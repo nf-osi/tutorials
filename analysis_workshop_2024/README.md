@@ -2,6 +2,8 @@
 
 **Basic tumor deconvolution tutorial with NF genomics data**
 
+> Figure: Anjali Bhargav, Nishka Bhalla, Sneha Manoharan,  et al. Role of Various Immune Cells in the Tumor Microenvironment. Dis Res, 2023, 3(1): 30-40. Doi: 10.54457/DR.202301006
+
 ![tme-role-immune-cells](https://github.com/nf-osi/tutorials/assets/32753274/64c5a272-1c37-4df2-a91f-e1de71af4141)
 
 This contains materials for a basic analysis with data on the NF data portal, originally developed for the CTF-sponsored NF Global Conference 2024.
