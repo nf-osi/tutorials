@@ -41,7 +41,6 @@ The **yes AR** scenario suggests a dependency for additional walk-through of get
 ## Accompanying recordings
 
 ### Cavatica
-(these have audio, while the ones embedded in the presentation do not)
 
 - (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
 - (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
