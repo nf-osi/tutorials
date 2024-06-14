@@ -44,8 +44,6 @@ The **yes AR** scenario suggests a dependency for additional walk-through of get
 - (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
 - (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
 
-### Other 
-- (~8 min) General `synapser` installation: <publicly available after workshop> 
 
 ## License
 
