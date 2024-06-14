@@ -1,6 +1,6 @@
 ## synapser 101
 
-A number of synapser tutorials to supplement https://python-docs.synapse.org/tutorials/home/.
+synapser tutorials to supplement https://python-docs.synapse.org/tutorials/home/.
 
 ### Datasets
 
