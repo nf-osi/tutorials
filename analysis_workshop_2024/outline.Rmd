@@ -1,0 +1,311 @@
+---
+title: "Analysis Workshop"
+author: "NF-OSI Staff"
+date: "2024-06-22"
+output:
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup-pkgs, include=FALSE}
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(png)
+```
+
+
+## Overall Workshop
+
+### First third
+- Quick contextual overview (5 min)
+- Cavatica and Rstudio (30 min)
+
+### Second third
+- cBioPortal (10 min)
+- Google Colab and Python (20 min)
+
+### Last third
+- Questions and technical support (20 min)
+- Survey (5 min)
+
+
+<div class="notes">
+Notes for Cavatica portion:
+- Send to Cavatica currently only works from the main fileview. 
+- Show how to search and select files, then click on top-right link to send data.
+- In Cavatica studio, understand what exactly was imported.
+</div>
+
+
+## This workshop section
+
+### First third
+- Quick contextual overview (5 min)
+- Cavatica and Rstudio (30 min)
+
+### **Second third**
+- **cBioPortal (10 min)**
+- **Google Colab and Python (20 min)**
+
+### Last third
+- Questions and technical support (20 min)
+- Survey (5 min)
+
+<div class="notes"> 
+Hi, this is the second part of the workshop. 
+We have showcased some CTF data and analysis and, in this part, we are going to complement that with something more focused on NTAP data. 
+This also introduces two different analysis options that you can compare with the Cavatica workflow.
+</div>
+
+
+## Contextual Overview of Analysis Options
+
+<div class="notes"> 
+If some of you attended a previous webinar we did called "NF Data Exploration Made Easy", you might recognize this. 
+This workshop is a continuation of that theme, to facilitate data exploration by showing you different tools as well as a bit of training to encourage more flexible explorations. 
+So here is the context and the tie-in.
+</div>
+
+```{r tools-spectrum-funs, include=FALSE}
+read_logo <- function(filename) {
+  img <- readPNG(filename)
+  rasterGrob(img, interpolate = TRUE)
+}
+
+logos <- list(
+  aws = list(file = "resources/aws_logo.png", x = 0.1, y = 0.8),
+  azure = list(file = "resources/azure_logo.png", x = 0.1, y = 0.6),
+  gcp = list(file = "resources/gcp_logo.png", x = 0.1, y = 0.4),
+  palantir = list(file = "resources/palantir_logo.png", x = 0.3, y = 0.5),
+  cavatica = list(file = "resources/cavatica_logo.png", x = 0.5, y = 0.6),
+  cbioportal = list(file = "resources/cbioportal_logo.png", x = 0.75, y = 0.8),
+  codeocean = list(file = "resources/codeocean_logo.png", x = 0.5, y = 0.38),
+  pharmacodb = list(file = "resources/pharmacodb_logo.png", x = 0.9, y = 0.65),
+  plutobio = list(file = "resources/plutobio_logo.png", x = 0.7, y = 0.5),
+  colab = list(file = "resources/colab_logo.png", x = 0.5, y = 0.8) 
+)
+```
+
+```{r tools-spectrum, out.width="100%", echo=FALSE, cache=FALSE}
+gradient_df <- data.frame(
+  x = seq(0, 1, length.out = 100),
+  y = rep(1, 100),
+  fill = seq(0, 1, length.out = 100)
+)[-c(1,100), ]
+
+p <- ggplot() +
+  theme_void() + # Remove axes and background
+  xlim(0, 1) + ylim(0, 1) + # Set x and y limits
+  geom_tile(data = gradient_df, aes(x = x, y = 0.95, fill = fill), height = 0.03) +
+  scale_fill_gradient(low = "navy", high = "red", guide="none") +
+  annotate("text", x = c(0.1, 0.3, 0.5, 0.7, 0.9), y = 0.9, label = c("1", "2", "3", "4", "5"), size = 6) + # Add labels
+  annotate("text", x = 0.1, y = 1, label = "Flexible (but complex)", size = 4, hjust = 0) + # Add labels
+  annotate("text", x = 0.9, y = 1, label = "Usable (very specific tasks)", size = 4, hjust = 1)
+
+scale_factor <- 0.24
+
+# Add logos to the plot with increased size
+for (logo in logos) {
+  p <- p + annotation_custom(read_logo(logo$file), 
+                             xmin = logo$x - scale_factor / 2, 
+                             xmax = logo$x + scale_factor / 2, 
+                             ymin = logo$y - scale_factor / 2, 
+                             ymax = logo$y + scale_factor / 2)
+}
+
+p
+```
+
+
+
+<div class="notes">
+
+TODO/OPTIONAL
+This is a more detailed landscape comparison of the previous slide.
+What we've added is how well these platforms connect to the data on Synapse, and what it might cost you (time/effort/money) to get data to this environment and work in it. 
+**Reiterate: we're not being prescriptive, just trying to inform about where things at are currently**.
+Synapse very open to different compute solutions, and we're working on more, it's just that things move slowly because take a lot of engineering effort.
+But ultimately, more options = more chances of success for different types of researchers.  
+Why we're showing different solutions today!
+</div>
+
+## Previous Analysis in Cavatica
+
+<div class="notes">
+So in the previous session, you did analysis in Cavatica.
+</div>
+
+```{r here-cavatica, out.width="100%", echo=FALSE}
+
+p + geom_rect(aes(
+  xmin = logos$cavatica$x - 0.15, xmax = logos$cavatica$x + 0.15, 
+  ymin = logos$cavatica$y - 0.05, ymax = logos$cavatica$y + 0.05), 
+  color = "red", fill = NA, linewidth = 1)
+
+
+```
+
+## Now: Exploratory Analysis in cBioPortal
+
+```{r here-at-cbioportal, out.width="100%", echo=FALSE}
+
+p + geom_rect(aes(
+  xmin = logos$cbioportal$x - 0.1, xmax = logos$cbioportal$x + 0.1, 
+  ymin = logos$cbioportal$y - 0.05, ymax = logos$cbioportal$y + 0.05), 
+  color = "red", fill = NA, linewidth = 1)
+```
+
+
+<div class="notes">
+First, we are going to use some data that is already visualized outside the NF Data Portal (in cBioPortal). This is the NTAP-funded JHU data in cBioPortal. We’ll show you what you can do in cBioportal.
+
+1. Basic clinical summary of cohort (male vs female) cancer types – Synapse can be used for similar simple cohort visualization tools per dataset but you would have to configure it yourself.
+2. Quickly check individuals/samples with a specific mutation in Gene X (Mutated Genes panel).
+3. Get quick stats on nonsynonymous tumor mutational burden (TMB) – the total number of nonsynonymous mutations per coding area of a tumor genome is a biomarker and sometimes useful for immunotherapy.
+4. Download clinical data through the UI.
+5. Download the processed cBioPortal dataset by following the Synapse link.
+</div>
+
+<div class="notes"> 
+**SWITCH FROM SLIDE PRESENTATION HERE TO GO TO CBIOPORTAL.**
+</div>
+
+## Debrief cBioPortal
+
+- Appreciated that data was "pre-loaded" for analysis, no effort needed
+- Learned strengths of exploratory analysis and sharing features
+- Made aware that data not guaranteed to be most up-to-date
+- Realized limitations for other use cases
+
+<div class="notes">
+You saw just now that cBioPortal is good for quick overview and certain types of exploratory analysis. 
+But there are situations when you might want to explore the original raw data or even just do something slightly different with the processed data, where you are motivated to go Synapse to get the data. 
+
+</div>
+
+
+## Now: Analysis in Colab
+
+```{r here-x, out.width="100%", echo=FALSE}
+
+new_pos <- logos$colab
+
+p + geom_rect(aes(
+  xmin = new_pos$x - 0.1, xmax = new_pos$x + 0.1, 
+  ymin = new_pos$y - 0.08, ymax = new_pos$y + 0.08), 
+  color = "red", fill = NA, linewidth = 1)
+
+
+```
+
+## Go to Google Colab
+
+- [**Colab notebook**](https://colab.research.google.com/drive/1LyWwDNmcfzslUUTg94RUylIKC4U0J3-c?authuser=1)
+- Go to **File > Save a copy in Drive**
+
+<div class="notes"> 
+
+EXTRA NOTES, CAN SKIP, but good to know:
+1. Only requires existing Google account and free compute for up to 12 hours, may be easier to get started than Cavatica.
+2. Google Colab offers GPUs. In general, to get certain hardware (flexibility/configurability), you'd have to do analysis in a Category 1-3 environment.
+(Though this example doesn't even need GPUS.)
+3. Can also [open notebook from GitHub](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb) (but let's just fork for the workshop).
+
+**SWITCH FROM SLIDE PRESENTATION HERE TO GO TO COLAB**
+
+**SETUP NOTES**
+
+There are two *key* things we need to do to set up the analysis.
+This is not part of the analysis itself, but essential and realistic  
+(in fact, just like how 80% of data science is data prep).
+
+In Synapse, go to the datasets page. We want to show that, unlike with the Cavatica example, an alternative entrypoint is not files but datasets.
+You can find the dataset represented on cBioPortal through the search.
+So we see this RNA-seq data. This is what we want.
+Click on it to go to the dataset home page. The first key thing is the "Request Access" at the top left.
+So you will *not* request access, don't copy what I'm doing, we just want to take you through the partial flow to show what it looks like.
+You see here the steps to accept the terms and then submit a data use statement.
+In fact, you can see what the data use statement looks like for this workshop (click on link to page with data use statements, point out workshop one).
+If you've gotten data from dbGaP, this should seem like a familiar idea, but definitely nicer UI and not quite as much work.
+It may take up to two weeks to get a confirmation.
+
+But let's say a couple of days later, you've gotten confirmation of access. 
+You're ready to analyze, let's go to our notebook.
+You are logged into your Google account and have forked the notebook.
+The second key thing now is to make sure you have Synapse credentials set up.
+Click on key icon at left. It'll open with an option for `Add new secret`.
+Go to your Synapse profile -> Personal Access Token -> generate one and copy it.
+Add a secret called `SYNAPSE_AUTH_TOKEN` and paste this in. Turn on the toggle of "Notebook access".
+
+Now running the notebook is the easy part, just make sure to run every block in order.
+
+</div>
+
+## Debrief Colab
+
+- Familiarized with variant of data access flow where there are additional requirements
+- Learned basics of how to connect/load the data in this particular analysis environment
+- Acquainted with what analysis looks like in Colab, particular features of Colab
+
+<div class="notes">
+Through the workshop exercise just now, you saw:
+- A realistic example of accessing data with Conditions of Use.
+- How to typically set up Synapse credentials when getting data programmatically.
+- How to get data using the Python synapseclient (to compare against Cavatica's UI option and R examples)
+- How to run analysis notebook in Colab (very similar to Rmarkdown)
+</div>
+
+## Summary of analysis approaches covered
+
+<div class="notes"> 
+We were able to cover a lot of different analysis environments and tools in this workshop!
+Analysis environments: Cavatica, cBioPortal, <Google Colab or Code Ocean>
+Packages: synapseclient, <name of Bioconductor package in other part>, TumorDecon
+Languages: R and Python
+And yes, there is no one way to do things, but you should now have some idea of the essentials.
+</div>
+
+```{r, out.width="100%", echo=FALSE}
+summary_p <- ggplot() +
+  theme_void() +
+  xlim(0, 1) + ylim(0, 1)
+
+scale2 <- 1.5
+
+for (logo in logos[c("cavatica", "cbioportal", "colab")]) {
+  summary_p <- summary_p + 
+    annotation_custom(
+      read_logo(logo$file),  
+      xmin = logo$x - scale_factor / scale2,
+      xmax = logo$x + scale_factor / scale2,
+      ymin = logo$y - scale_factor / scale2, 
+      ymax = logo$y + scale_factor / scale2)
+}
+
+# Add language logos
+summary_p <- summary_p +
+   annotation_custom(read_logo("resources/r_logo.png"), xmin = 0.15, xmax = 0.3, ymin = 0.5,  ymax = 0.7) +
+   annotation_custom(read_logo("resources/python_logo.png"), xmin = 0.6, xmax = 0.9, ymin = 0.4,  ymax = 0.7)
+
+# TODO: Add package names and data types?
+
+summary_p
+
+```
+
+## Summary of workshop benefits
+
+- Introduced to the different data entrypoints on the portal: global file browser, study-specific file browser, and datasets
+- Familiarized with how data and metadata are connected and organized
+- Learned basics of getting data from Synapse through UI or programmatically
+- Enlightened on analysis possibilities through hands-on comparison and interaction
+- Refined ability to assess for yourself what is good for your use case on the usability vs flexibility spectrum
+- Practiced with a variety of category 3-4 analysis environments  
+- Indoctrinated into collaborative and reproducible analysis
+
+<div class="notes">
+Final motivating thoughts, closing remarks: 
+1. Collaborative and reproducible analysis demonstrated in this workshop made possible by data being shared on Synapse and not just stored locally in one location.
+2. Sharing data reflects optimism about human ingenuity to continually advance computational methods to process, integrate data to unlock new insights.   
+</div>

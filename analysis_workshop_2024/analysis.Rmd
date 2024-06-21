@@ -1,0 +1,247 @@
+---
+title: "Tumor Deconvolution"
+author: "Anh Nguyet Vu"
+output: html_document
+date: "2024-06-06"
+---
+
+```{r setup, include=FALSE}
+
+remotes::install_github("omnideconv/immunedeconv")
+BiocManager::install("tximport")
+BiocManager::install("ensembldb")
+BiocManager::install("EnsDb.Hsapiens.v75")
+```
+
+
+```{r load, include=FALSE}
+
+# Make sure packages load
+library(tximport)
+library(ensembldb)
+library(immunedeconv)
+library(EnsDb.Hsapiens.v75)
+```
+
+
+### Introduction
+
+![tme-role-immune-cells](https://github.com/nf-osi/tutorials/assets/32753274/64c5a272-1c37-4df2-a91f-e1de71af4141)
+ 
+In cancer biology, the "tumor microenvironment" (TME) comprises the immune cells, extracellular matrix, blood vessels and various additional tissue-resident cell types that are part of the tumor ecosystem [^1]. Here we are interested in one important component, the composition of different immune cell types. However, there isn't always direct data from more cell assays like immunohistochemistry, flow cytometry, and mass cytometry for quantifying immune infiltrates. For the JHU Biobank, for example, only sequencing data is available.
+
+Fortunately, RNA-seq data can be used to characterize TME through a number of computational approaches. One highly used "tumor deconvolution" method is CIBERSORT[^2], which is available programmatically through R and a Python implementation via the TumorDecon package[^3]. (Other approaches are helpfully reviewed and benchmarked in [^4] and [^5].)
+
+
+[^1]: https://doi.org/10.1016/j.ccell.2023.02.016
+[^2]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5895181/
+[^3]: https://doi.org/10.1016/j.softx.2022.101072
+[^4]: https://academic.oup.com/bioinformatics/article/35/14/i436/5529146
+[^5]: https://academic.oup.com/bib/article/22/4/bbaa219/5916936
+
+### Locate files and clinical data
+
+(Look Ma, no `synapser`!)
+
+Files have already been transferred through the UI workflow and are just available under `/sbgenomics/project-files`.
+```{r }
+
+sf <- list.files("/sbgenomics/project-files", pattern = ".sf$", full.names = T) 
+attributes <- read.csv("/sbgenomics/project-files/Job-3645258210835165589066307932.csv")
+attributes
+
+```
+
+### Examining the expression data and mapping to gene-level expression
+
+About these .sf files:
+* They are quantification results at the transcript level.
+* Each row corresponds to a transcript, with columns providing details such as the transcript ID, length, effective length, number of reads (TPM - transcripts per million), and estimated counts.
+* Data in this file reflects the abundance of individual transcript isoforms.
+
+Here's what one looks like -- just very tabular with columns as described above.
+```{r sf-glimpse, echo=FALSE}
+
+first_file <- sf[1]
+read.csv(first_file, sep = "\t")
+```
+
+There can be multiple transcript isoforms per gene, and we actually need gene-level expression as inputs into the computational method.
+These are Ensembl transcript IDs, the first one is http://useast.ensembl.org/Homo_sapiens/Transcript/Summary?db=core;g=ENSG00000290825;r=1:11869-14409;t=ENST00000456328 
+
+The input needs to be a matrix with genes in rows and samples in columns. The rownames must be HGNC symbols for human data.
+In order to group/map these into gene-level summarization with HGNC gene symbols, we will use a mapping reference and the `tximport` package.
+
+Since the mapping of raw reads was with Hg19 (see original paper), we will use Ensembl Release 75 to build the mapping table.
+
+```{r gene-level, echo=FALSE}
+
+edb <- EnsDb.Hsapiens.v75
+tx <- transcripts(edb, columns=c("tx_name", "gene_name"), return.type = "data.frame")
+tx2gene <- tx[, c("tx_name", "gene_name")]
+head(tx2gene)
+
+```
+
+`tximport` conveniently reads all those sf files into the summary-level matrix.
+```{r}
+gx_matrices <- tximport(sf, 
+                        type = "salmon", 
+                        tx2gene = tx2gene, 
+                        ignoreTxVersion = TRUE,
+                        abundanceCol = "TPM")
+abundance <- gx_matrices$abundance
+# use sample names for columns
+sample_names <- regmatches(sf, regexpr("patient[0-9]+tumor[0-9]+", sf))
+colnames(abundance) <- sample_names
+head(abundance)
+```
+
+### Run analysis
+
+The available methods for human data in `immunedeconv` are:
+```
+quantiseq
+timer
+cibersort
+cibersort_abs
+mcp_counter
+xcell
+epic
+abis
+consensus_tme
+estimate
+```
+
+See https://github.com/omnideconv/immunedeconv for more about the methods implemented. 
+Some popular methods are CIBERSORT and ESTIMATE (based on citations).
+For our analysis, let's go with the recommendation as stated in their [benchmarking paper](https://academic.oup.com/bioinformatics/article/35/14/i436/5529146):
+
+> we recommend EPIC and quanTIseq for general purpose deconvolution
+
+The output is the estimated "absolute" fractions for each immune cell type.
+```{r}
+
+result <- immunedeconv::deconvolute(abundance, "quantiseq")
+result
+
+```
+
+### Figures - initial
+
+Of course, the results could be much more easily interpreted as a figure.
+We'll plot what the immune cell distribution looks like for these cutaneous neurofibroma samples. 
+Some studies have compared whether immune cell fractions vary over different types of cancers with solid tumors.
+But cutaneous neurofibroma is relatively rare and unlikely to be included in these types of study comparisons.
+
+```{r}
+
+library(ggplot2)
+library(reshape2)
+library(magrittr)
+library(dplyr)
+
+data_long <- melt(result, 
+                  id.vars = "cell_type",
+                  variable.name = "sample", 
+                  value.name="fraction")
+ggplot(data_long, aes(x=cell_type, y=fraction, fill=cell_type)) +
+  geom_boxplot() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  
+  labs(title="Immune Cells in the Cutaneous Neurofibroma Tumor Environment",
+       x="Immune Cell Type",
+       y="Fraction") 
+```
+
+### Figures - extended
+
+Well, some grouping might be interesting, but mainly we also need an exercise using the clinical data.
+Again, we already have basic clinical data associated with the files that we can use.
+(Sometimes there may be "extended" clinical data as a separate .csv within the project, but that is not the case with this dataset.)
+
+```{r}
+
+clinical <- attributes[, c("individualID", "diagnosis", "tumorType", "NF1.Genotype", "NF2.Genotype")]
+
+# Use a very popular utility package for summarizing data:
+Hmisc::describe(clinical)
+
+```
+
+
+Diagnosis, NF1.Genotype, NF2.Genotype, etc. are the same, so we're not really doing a cross-disease/tumor-type comparison. 
+But it looks like there are multiple tumors per individual.
+```{r}
+# Let's actually rename individualID to sampleID and separate out the individual and tumor
+clinical$sampleID <- clinical$individualID
+clinical$individualID <- gsub("tumor.*", "", clinical$sampleID)
+head(clinical)
+```
+
+
+```{r}
+sample_counts <- clinical %>%
+  group_by(individualID) %>%
+  summarise(unique_samples = n_distinct(sampleID))
+
+ggplot(sample_counts, aes(x = individualID, y = unique_samples)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Tumors per Individual", x = "Individual ID", y = "Unique Tumors") +
+  theme_minimal()
+
+```
+
+
+Let's say that the number of tumor samples correspond to the actual numbers of tumors the patients had.
+We'll group the patients into these groups: 2, 3, and 4 tumors.
+Let's create these groupings and visualize by this stratification.
+```{r}
+
+data_grouped <- data_long %>%
+  mutate(individualID = gsub("tumor.*", "", sample)) %>%
+  left_join(sample_counts) %>%
+  rename(tumor_group = unique_samples) %>%
+  mutate(tumor_group = factor(tumor_group)) %>%
+  group_by(tumor_group)
+
+ggplot(data_grouped, aes(x = cell_type, y = fraction, fill = tumor_group)) +
+  geom_boxplot(position = position_dodge(0.9)) +
+  labs(title = "Comparison of Cell Type Fractions by Group", x = "Cell Type", y = "Fraction") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set3")
+
+```
+
+
+Our cohort and sample sizes are pretty tiny here, and we don't expect a significant difference.
+But we can try combining groups 3 and 4 and do a simple t-test.
+but this would be the example code for testing whether there was something significantly different for a cell type of interest.
+```{r}
+
+data_grouped <- data_grouped %>%
+  mutate(collapsed = fct_collapse(tumor_group, "2" = 2, "3-4" = c(3, 4)))
+cell_type_of_interest <- "Monocyte"
+specific_cell_type_data <- data_grouped %>%
+  filter(cell_type == cell_type_of_interest)
+
+# Perform t-test
+t_test_result <- t.test(fraction ~ collapsed, data = specific_cell_type_data)
+
+# Print the t-test result
+print(t_test_result)
+```
+
+### Packages and versions
+
+```{r message=TRUE, warning=FALSE}
+sessionInfo()
+```
+
+### Citations
+```{r}
+citation("tximport")
+citation("ensembldb")
+citation("immunedeconv")
+```

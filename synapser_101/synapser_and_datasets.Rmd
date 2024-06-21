@@ -1,0 +1,108 @@
+---
+title: "Hands-on with synapser and datasets"
+output: html_document
+date: "2024-06-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(synapser)
+synLogin() 
+
+# Note: can also do synLogin(authToken="your-token") but not recommended in case 
+# this gets shared with others later or stored in version control 
+
+tutorial_project <- "syn60667554"
+```
+
+## Using an analysis-ready dataset
+
+The example dataset is "Copy Number Variation from the Columbia University NF1 Glioma Project" (syn51915976).
+
+### Get metadata in the dataset
+
+Use SQL-like query to get metadata / basic clinical data as table.
+
+```{r query}
+
+dataset_id <- "syn51915976"
+dataset_version <- "4"
+dataset_id_with_version <- "syn51915976.4"
+query <- glue::glue("SELECT id as fileId,name as fileName,individualID,specimenID,diagnosis,nf1Genotype,nf2Genotype,sex,age,grade,histology FROM {dataset_id_with_version}")
+query
+
+```
+
+```{r the-table}
+results <- synTableQuery(query)
+dt <- as.data.frame(results)
+dt
+```
+
+### Batch download files in a dataset
+
+First way to download the dataset -- use your download list if you've built one in Synapse UI.
+
+```{r download-dataset-as-download-list}
+
+download1 <- synGetDownloadList(downloadLocation = "./download1")
+```
+
+Second way to download a dataset -- get ids of the items and download via a loop.
+
+```{r files-in-dataset}
+
+reused_dataset <- synGet(dataset_id) 
+file_list <- reused_dataset$properties$datasetItems
+head(file_list)
+
+```
+
+```{r download-files}
+
+for (i in file_list) {
+  synGet(entity = i$entityId, 
+         version = i$versionNumber,
+         downloadFile = TRUE, 
+         downloadLocation = "./download2")
+}
+```
+
+## Creating a dataset
+
+When and why:
+- Analysis-ready dataset doesn't already exist for some collection of files.
+- Create a dataset in your own project that will keep track with each analysis version.
+Often an analysis will be done a number of times with:
+  - Removal of some data.
+  - Different versions of some data.
+  - Add/combine more data, maybe from another project.
+
+```{r first-dataset}
+
+# Dataset constructor
+dataset1 <- synapser::Dataset(
+  name = "Dataset 1 - Data From One Project", 
+  parent = tutorial_project,
+  folders = list("syn18407530"), 
+  addAnnotationColumns = TRUE)  # will surface all available metadata, TRUE is a good default in most cases
+
+# Store new dataset in Synapse
+dataset1 <- synStore(dataset1)
+
+```
+
+
+## Batch Download Files From Your Dataset
+
+Once you have create and stored the dataset, can use item ids for download and **batch download exactly as shown above**.
+
+Get the ids of files (i.e. "dataset items") to download.
+```{r files-in-dataset}
+
+file_list_2 <- dataset1$properties$datasetItems
+head(file_list_2)
+
+```
+
