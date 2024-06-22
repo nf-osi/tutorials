@@ -44,8 +44,8 @@ The **yes AR** scenario suggests a dependency for additional walk-through of get
 
 ### Cavatica
 
-- (~6 min) Setting up NF Data portal data for Cavatica: <publicly available after workshop>
-- (~10 min) The `analysis.Rmd` walk-through in Cavatica: <publicly available after workshop>
+- (~6 min) Setting up NF Data portal data for Cavatica [Video Here](https://www.dropbox.com/scl/fi/j8wa67h1oxt7g28z1kdmp/Cavatica-Setup.mp4?rlkey=n9ukft5hmglla1flmm8p80ksh&st=6sr536wa&dl=0)
+- (~10 min) The `analysis.Rmd` walk-through in Cavatica [Video Here](https://www.dropbox.com/scl/fi/pu8ux12v34awkjh2qtnu9/Cavatica-Analysis.mp4?rlkey=v47af65mhvff5xcmfo3l3z6wa&st=cjaqeryc&dl=0)
 
 
 ## License
