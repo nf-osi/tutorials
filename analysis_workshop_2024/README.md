@@ -8,7 +8,9 @@
 
 This contains materials for a basic analysis with data on the NF data portal, originally developed for the CTF-sponsored NF Global Conference 2024.
 
-👉 [**original workshop presentation**](https://docs.google.com/presentation/d/1TcdmttOD-_Sq6gs44AOZs-kjaIkNPvWsp3L3IOCTvuI/edit#slide=id.g2e502207cfc_0_36).
+👉 [**original workshop presentation from google slides**](https://docs.google.com/presentation/d/1TcdmttOD-_Sq6gs44AOZs-kjaIkNPvWsp3L3IOCTvuI/edit#slide=id.g2e502207cfc_0_36).
+
+👉 [**original workshop presentation (pdf version)**](https://github.com/nf-osi/tutorials/blob/49bf469198d50e1faebe69e26343ef1852d404bc/analysis_workshop_2024/NF%20Workshop%20Slides%20-%20CTF%20Conference%202024.pdf)
 
 This **code** is available for adaption and reuse.
 
