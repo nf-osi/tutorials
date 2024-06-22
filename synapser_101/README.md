@@ -5,7 +5,7 @@ synapser tutorials to supplement https://python-docs.synapse.org/tutorials/home/
 ### Datasets
 
 Accompanying video:
-- (~8 min) `synapser` installation and datasets: <publicly available soon> 
+- (~8 min) `synapser` installation and datasets [Video Here](https://www.dropbox.com/scl/fi/9e3mdeeeelcxtrrdrlyxd/Local-Synapse-Datasets.mp4?rlkey=gbbxdroqeq8o4pxtv4m9pylz0&st=184ffu77&dl=0)
 
 
 
