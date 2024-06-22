@@ -8,7 +8,7 @@
 
 This contains materials for a basic analysis with data on the NF data portal, originally developed for the CTF-sponsored NF Global Conference 2024.
 
-👉 [**original workshop presentation**](https://docs.google.com/presentation/d/1aUJKIpoyX8ru4F3DUMbxFmSGBQNjVCje1zIA4uw489E/edit?usp=drive_link).
+👉 [**original workshop presentation**](https://docs.google.com/presentation/d/1TcdmttOD-_Sq6gs44AOZs-kjaIkNPvWsp3L3IOCTvuI/edit#slide=id.g2e502207cfc_0_36).
 
 This **code** is available for adaption and reuse.
 
