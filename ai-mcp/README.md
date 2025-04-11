@@ -20,7 +20,7 @@ Benefit from the resource investments and technological developments unique to o
     - Ask a literature-research question
     - Discover research tools for your experiment
   - For Data Users:
-    - Search for an understand a dataset from the NF Data Catalog
+    - Search for and understand a dataset (e.g. its potential access requirements) from the NF Data Catalog
     - Conducting exploratory queries of Synapse tables
   - For Data / Domain Expert Contributors
     - Querying the NF data model to better understand the standards and share your data more effectively
