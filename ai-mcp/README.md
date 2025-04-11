@@ -16,9 +16,15 @@ Benefit from the resource investments and technological developments unique to o
   - Access to the NF data model
   - Synapse table queries for easy question-answering and exploratory analysis
 3. **Practical Demonstrations**
-  - For Scientists: Discover research tools for your studies
-  - For Data Users: Conducting exploratory queries of Synapse tables and comparing datasets
-  - For Data Contributors: Querying the NF data model to share your data more effectively
+  - For Scientists:
+    - Ask a literature-research question
+    - Discover research tools for your experiment
+  - For Data Users:
+    - Search for an understand a dataset from the NF Data Catalog
+    - Conducting exploratory queries of Synapse tables
+  - For Data / Domain Expert Contributors
+    - Querying the NF data model to better understand the standards and share your data more effectively
+    - Easily create an issue to improve data model with your expertise
 
 ### Questions & Discussios
 - Open forum for community feedback: addressing specific questions and exploring additional use cases
