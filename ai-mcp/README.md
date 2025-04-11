@@ -7,14 +7,15 @@ Benefit from the resource investments and technological developments unique to o
 
 ### Workshop Agenda
 
-1. Setting Up: Connecting to NF resources through the MCP server.
-2. Explaining Tools & Resources Provided:
+1. **Setting Up**
+  - Connecting to NF resources through the MCP server (configuration).
+2. **Explaining Tools & Resources Provided**
   - Semantically queryable knowledgebase of 300+ indexed NF publications
   - Access to the Tools Central database
   - Access to the NF Data Catalog
   - Access to the NF data model
   - Synapse table queries for easy question-answering and exploratory analysis
-3. Practical Demonstrations
+3. **Practical Demonstrations**
   - For Scientists: Discover research tools for your studies
   - For Data Users: Conducting exploratory queries of Synapse tables and comparing datasets
   - For Data Contributors: Querying the NF data model to share your data more effectively
