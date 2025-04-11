@@ -1,7 +1,7 @@
 ## AI-Powered NF Research: Accelerate Your Scientific Discoveries
 
 Are you an NF researcher looking to leverage AI to accelerate your work? 
-Join our hands-on workshop where you'll learn to harness Claude for Desktop—the leading AI desktop client—specifically for NF scientific research.
+Join our hands-on workshop where you'll learn to harness AI desktop clients (such as Claude for Desktop) specifically for NF scientific research.
 We'll guide you through connecting to the beta Model Context Protocol (MCP) server developed by the NF-OSI, enabling AI-assisted access to specialized tools and resources from the NF community and Synapse. 
 Benefit from the resource investments and technological developments unique to our research community -- built to provide an advantage to NF researchers.
 
