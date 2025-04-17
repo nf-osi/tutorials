@@ -10,10 +10,10 @@ Benefit from the resource investments and technological developments unique to o
 1. **Setting Up**
   - Connecting to NF resources through the MCP server (configuration).
 2. **Explaining Tools & Resources Provided**
-  - Semantically queryable knowledgebase of 300+ indexed NF publications
   - Access to the Tools Central database
   - Access to the NF Data Catalog
   - Access to the NF data model
+  - Semantically queryable knowledgebase of 300+ indexed NF publications
   - Synapse table queries for easy question-answering and exploratory analysis
 3. **Practical Demonstrations**
   - For Scientists:
