@@ -3,7 +3,8 @@
 Are you an NF researcher looking to leverage generative AI to accelerate your work? 
 Join our hands-on workshop where you'll learn to harness AI desktop clients (such as Claude for Desktop) specifically for NF scientific research.
 We introduce the beta Model Context Protocol (MCP) server developed by the NF-OSI and how to connect to it to enable AI-assisted access to specialized tools and resources from the NF community. 
-Then we demonstrate human-AI collaboration for common research tasks using these tools and resources, to help more NF researchers become especially productive next-generation scientists.   
+Then we demonstrate human-AI collaboration for common research tasks using these tools and resources, to help more NF researchers become especially productive next-generation scientists.  
+
 Benefit from the resource investments and technological developments unique to our research community and purposely built to provide an advantage to NF researchers! 
 
 ### Workshop Agenda
@@ -12,11 +13,14 @@ Benefit from the resource investments and technological developments unique to o
   - Results from pre-workshop survey on AI experience and preferred desktop clients
   - Connecting to NF resources through the MCP server (configuration).
 2. **Explaining Tools & Resources Provided**
-  - Access to the Tools Central database
+  - Access to the NF Tools Central database
   - Access to the NF Data Catalog
   - Access to the NF data model
   - Semantically queryable knowledgebase of 200+ indexed NF publications
   - Synapse table queries for easy question-answering and exploratory analysis
+  <!--  
+  - Access to Data Sharing Plans
+  -->
 3. **Practical Demonstrations**
   - For Scientists:
     - Ask a literature-research question
@@ -27,7 +31,10 @@ Benefit from the resource investments and technological developments unique to o
   - For Data / Domain Expert Contributors
     - Querying the NF data model to better understand the standards and share your data more effectively
     - Easily create an issue to improve data model with your expertise
-
+  <!--  
+  - For Funders:
+    - Query Data Sharing Plans (available for most projects established 2022)
+  -->
 ### Questions & Discussion
 - Open forum for community feedback addressing specific questions and exploring additional use cases 
 <!--
