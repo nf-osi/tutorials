@@ -13,11 +13,11 @@ Benefit from the resource investments and technological developments unique to o
   - Results from pre-workshop survey on AI experience and preferred desktop clients
   - Connecting to NF resources through the MCP server (configuration).
 2. **Explaining Tools & Resources Provided**
-  - Access to the NF Tools Central database
-  - Access to the NF Data Catalog
-  - Access to the NF data model
-  - Semantically queryable knowledgebase of 200+ indexed NF publications
-  - Synapse table queries for easy question-answering and exploratory analysis
+  - Easier querying and retrieval from the NF Tools Central database
+  - Easier querying and retrieval from the NF Dataset Catalog + AI can help you evaluate datasets for reuse
+  - Easier querying and retrieval from the NF data model + AI can help you translate data
+  - Semantically query our knowledgebase of 200+ NF-relevant publications + build your own local literature research library
+  - Easier querying and visualizations with data in a Synapse table
   <!--  
   - Access to Data Sharing Plans
   -->
