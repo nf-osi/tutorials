@@ -44,8 +44,12 @@ The **yes AR** scenario suggests a dependency for additional walk-through of get
 
 ### CTF NF Conference: Requesting, Reusing, and Analyzing Data on the NF Data Portal
 
+#### Full presentation
 (Cavativa tutorial starts at 20:00 into presentation)
 https://youtu.be/ug4M2qhFdMU?si=GPhkOPdBYuePWIL3
+
+#### Standalone Cavatica recording
+[Google drive link](https://drive.google.com/file/d/1OyO0xtE2FaiBhvcJhIhc1T9pEnpG24zj/view)
 
 
 ## License
