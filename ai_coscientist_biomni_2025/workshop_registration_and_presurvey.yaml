@@ -1,0 +1,128 @@
+title: "AI Co-Scientist Workshop Pre-Registration Survey"
+description: "Help us tailor the workshop to your background and interests"
+
+fields:
+  - id: "name"
+    label: "Your Name"
+    type: "text"
+    required: true
+
+  - id: "email"
+    label: "Your Email"
+    type: "email"
+    required: true
+
+  - id: "participant_role"
+    label: "What is your current role?"
+    type: "single_select"
+    required: true
+    options:
+      - "Principal Investigator (PI)"
+      - "Postdoctoral Researcher"
+      - "Graduate Student (PhD)"
+      - "Graduate Student (Masters)"
+      - "Undergraduate Student"
+      - "Research Scientist"
+      - "Industry Researcher"
+      - "Other"
+
+  - id: "nf_osi_funder"
+    label: "Which NF-OSI funder(s) currently support you? (Select all that apply)"
+    type: "multi_select"
+    required: false
+    options:
+      - "Gilbert Family Foundation (GFF)"
+      - "Neurofibromatosis Therapeutic Acceleration Program (NTAP)"
+      - "Children's Tumor Foundation (CTF)"
+      - "National Institutes of Health (NIH)"
+      - "Other/Independent"
+
+  - id: "ai_tools_familiar"
+    label: "Which AI co-scientist tools/platforms are you familiar with? (Select all that apply)"
+    type: "multi_select"
+    required: true
+    options:
+      - "--- Specialized Biomedical Co-Scientist Tools ---"
+      - "Biomni (https://biomni.stanford.edu/)"
+      - "FutureHouse (https://www.futurehouse.org/)"
+      - "Google AI Co-Scientist (https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/)"
+      - "Coscientist (CMU)"
+      - "ChemCrow (https://github.com/ur-whitelab/chemcrow-public)"
+      - "PaperQA (https://github.com/Future-House/paper-qa)"
+      - "AlphaFold/AlphaFold3 (https://deepmind.google/science/alphafold/)"
+      - "AllenAI ASTA agents (https://allenai.org/asta/agents)"
+      - "Isomorphic Labs tools (https://www.isomorphiclabs.com/)"
+      - "Laboratory automation/robotics platforms"
+      - "--- General AI Agent Tools ---"
+      - "OpenAI GPT models for research"
+      - "Claude for research"
+      - "GitHub Copilot"
+      - "Cursor AI"
+      - "None of the above"
+      - "Other (please specify)"
+
+  - id: "ai_tools_other"
+    label: "If you selected 'Other', please specify:"
+    type: "text"
+    required: false
+    show_if: "ai_tools_familiar contains 'Other (please specify)'"
+
+  - id: "primary_tool"
+    label: "Which AI tool do you use most frequently for research?"
+    type: "single_select"
+    required: false
+    options:
+      - "--- Specialized Biomedical Co-Scientist Tools ---"
+      - "Biomni (https://biomni.stanford.edu/)"
+      - "FutureHouse platform (https://www.futurehouse.org/)"
+      - "Google AI Co-Scientist (https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/)"
+      - "Coscientist (CMU)"
+      - "ChemCrow (https://github.com/ur-whitelab/chemcrow-public)"
+      - "PaperQA (https://github.com/Future-House/paper-qa)"
+      - "AlphaFold/AlphaFold3 (https://deepmind.google/science/alphafold/)"
+      - "AllenAI ASTA agents (https://allenai.org/asta/agents)"
+      - "Isomorphic Labs tools (https://www.isomorphiclabs.com/)"
+      - "Laboratory automation tools"
+      - "--- General AI Agent Tools ---"
+      - "OpenAI GPT models"
+      - "Claude"
+      - "GitHub Copilot"
+      - "Cursor AI"
+      - "I don't use any AI tools for research"
+      - "Other"
+
+  - id: "experience_level"
+    label: "How much experience do you have with your primary AI tool?"
+    type: "single_select"
+    required: false
+    show_if: "primary_tool != 'I don't use any AI tools for research'"
+    options:
+      - "None, but I am interested"
+      - "Beginner (< 1 month of use)"
+      - "Some experience (1-6 months of use)"
+      - "Moderate experience (6 months - 1 year)"
+      - "Experienced (1-2 years)"
+      - "Very experienced (> 2 years)"
+
+  - id: "ai_sentiment"
+    label: "What is your general sentiment towards using AI agents in scientific research?"
+    type: "single_select"
+    required: true
+    options:
+      - "Very enthusiastic - I believe AI will revolutionize research"
+      - "Optimistic - I see significant potential with proper implementation"
+      - "Cautiously interested - I want to learn more before deciding"
+      - "Neutral - I'm undecided about the benefits and risks"
+      - "Skeptical - I have concerns about reliability and accuracy"
+      - "Very concerned - I worry about the impact on scientific integrity"
+
+  - id: "workshop_topics"
+    label: "What specific topics or applications would you like to see covered in this workshop? (Free response)"
+    type: "textarea"
+    required: false
+    placeholder: "e.g., literature review automation, experimental design, data analysis, hypothesis generation, protocol optimization, autonomous laboratory systems, etc."
+
+  - id: "additional_comments"
+    label: "Any additional comments or specific questions about the workshop?"
+    type: "textarea"
+    required: false
