@@ -32,5 +32,5 @@ This innovative approach demonstrates real-world AI co-scientist applications wh
 **Post-Workshop Survey** (`workshop_postsurvey.yaml`) 
 - Measures learning outcomes, satisfaction, and confidence changes
 - Tracks intent to contribute/reuse data in Synapse following AI tool integration
-- Provides year-over-year comparison data for workshop effectiveness
-- Identifies barriers to adoption and areas for future improvement
+- Provides year-over-year comparison data (especially if next in-person conference workshop follows same theme)
+- Identifies areas of particular interest and future improvements
