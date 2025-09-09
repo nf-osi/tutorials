@@ -9,11 +9,11 @@
 - Virtual format logistics (muting, chat, screen sharing)
 - Technical support contact
 
-### Learning Objectives (3 minutes)
+### Learning Objectives (4 minutes)
 - Present key workshop learning objectives
-- Set expectations for hands-on activities
+- Set expectations for remainder of workshop
 
-### Pre-Survey Insights (7 minutes)
+### Pre-Survey Insights (6 minutes)
 - **Participant Demographics**: Role distribution, NF-OSI funder representation
 - **Current AI Tool Landscape**: Familiarity levels, most used tools, experience distribution
 - **Sentiment and Expectations**: General AI sentiment, topics of interest, knowledge gaps
@@ -82,7 +82,7 @@
 - Next steps for tool adoption
 
 ### Wrap-Up (5 minutes)
-- Learning objectives review via chat poll
+- Learning objectives review
 - Post-survey launch and importance
 - **Individual consultation offer**: Participants can email nfosi@sagebionetworks.org, mention the workshop, and we can arrange follow-up consultation time
 - Thank you and final Q&A
