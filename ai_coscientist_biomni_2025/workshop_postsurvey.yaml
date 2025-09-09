@@ -1,0 +1,222 @@
+title: "AI Co-Scientist Workshop Post-Workshop Survey"
+description: "Help us evaluate the workshop impact and improve future sessions"
+
+fields:
+  - id: "name"
+    label: "Your Name (optional)"
+    type: "text"
+    required: false
+
+  - id: "email"
+    label: "Your Email (optional - for follow-up research collaboration)"
+    type: "email"
+    required: false
+
+  - id: "overall_value"
+    label: "Overall, how valuable was this workshop to you?"
+    type: "single_select"
+    required: true
+    options:
+      - "Extremely valuable"
+      - "Very valuable"
+      - "Moderately valuable"
+      - "Slightly valuable"
+      - "Not valuable at all"
+
+  - id: "learning_objectives_met"
+    label: "To what extent were your learning objectives met?"
+    type: "single_select"
+    required: true
+    options:
+      - "Completely exceeded expectations"
+      - "Mostly met expectations"
+      - "Partially met expectations"
+      - "Barely met expectations"
+      - "Did not meet expectations"
+
+  - id: "knowledge_gain"
+    label: "How much did your knowledge of AI co-scientist tools increase?"
+    type: "single_select"
+    required: true
+    options:
+      - "Significant increase (I learned a lot of new concepts and tools)"
+      - "Moderate increase (I learned several new things)"
+      - "Small increase (I learned a few new things)"
+      - "Minimal increase (I learned very little new)"
+      - "No increase (I didn't learn anything new)"
+
+  - id: "confidence_change"
+    label: "How has your confidence in using AI tools for research changed?"
+    type: "single_select"
+    required: true
+    options:
+      - "Much more confident"
+      - "Somewhat more confident"
+      - "No change"
+      - "Somewhat less confident"
+      - "Much less confident"
+
+  - id: "tools_learned"
+    label: "Which tools or platforms did you learn about in this workshop? (Select all that apply)"
+    type: "multi_select"
+    required: true
+    options:
+      - "Biomni platform"
+      - "Literature review automation"
+      - "Experimental design assistance"
+      - "Data analysis workflows"
+      - "Hypothesis generation techniques"
+      - "Protocol optimization"
+      - "Laboratory automation integration"
+      - "Research paper writing assistance"
+      - "Grant writing support"
+      - "Other AI research tools"
+      - "None of the above"
+
+  - id: "synapse_contribution_likelihood"
+    label: "How much did learning about AI co-scientist tools and Synapse integration make you more likely to contribute data in Synapse?"
+    type: "single_select"
+    required: true
+    options:
+      - "Much more likely"
+      - "Somewhat more likely"
+      - "No change"
+      - "Somewhat less likely"
+      - "Much less likely"
+
+  - id: "synapse_reuse_likelihood"
+    label: "How much did learning about AI co-scientist tools and Synapse integration make you more likely to reuse data in Synapse?"
+    type: "single_select"
+    required: true
+    options:
+      - "Much more likely"
+      - "Somewhat more likely"
+      - "No change"
+      - "Somewhat less likely"
+      - "Much less likely"
+
+  - id: "specific_implementation"
+    label: "What specific AI tools or applications do you plan to implement first?"
+    type: "textarea"
+    required: false
+    placeholder: "e.g., Using Biomni for literature reviews, implementing automated data analysis workflows, etc."
+
+  - id: "barriers_to_adoption"
+    label: "What are the main barriers you see to adopting AI co-scientist tools? (Select all that apply)"
+    type: "multi_select"
+    required: false
+    options:
+      - "Technical complexity"
+      - "Cost/budget constraints"
+      - "Lack of institutional support"
+      - "Concerns about accuracy/reliability"
+      - "Time investment required to learn"
+      - "Integration with existing workflows"
+      - "Data privacy/security concerns"
+      - "Ethical considerations"
+      - "Peer/supervisor skepticism"
+      - "Limited access to tools/platforms"
+      - "No significant barriers"
+      - "Other"
+
+  - id: "barriers_other"
+    label: "If you selected 'Other', please specify:"
+    type: "text"
+    required: false
+    show_if: "barriers_to_adoption contains 'Other'"
+
+  - id: "workshop_format_rating"
+    label: "How would you rate the workshop format and delivery?"
+    type: "single_select"
+    required: true
+    options:
+      - "Excellent"
+      - "Very good"
+      - "Good"
+      - "Fair"
+      - "Poor"
+
+  - id: "most_valuable_component"
+    label: "What was the most valuable component of the workshop?"
+    type: "textarea"
+    required: true
+    placeholder: "e.g., big picture overview, specific tool training, opportunity for community feedback and discussion, etc."
+
+  - id: "least_valuable_component"
+    label: "What was the least valuable component of the workshop?"
+    type: "textarea"
+    required: false
+    placeholder: "What could be improved or removed in future workshops?"
+
+  - id: "recommendation_likelihood"
+    label: "How likely are you to recommend this workshop to colleagues?"
+    type: "single_select"
+    required: true
+    options:
+      - "Extremely likely"
+      - "Very likely"
+      - "Moderately likely"
+      - "Slightly likely"
+      - "Not likely at all"
+
+  - id: "future_topics"
+    label: "What topics would you like to see covered in future AI co-scientist workshops?"
+    type: "textarea"
+    required: false
+    placeholder: "e.g., other options/alternatives, advanced configuration, regulatory considerations, collaboration workflows, etc."
+
+  - id: "sentiment_change"
+    label: "How has your sentiment toward AI in scientific research changed after this workshop?"
+    type: "single_select"
+    required: true
+    options:
+      - "Much more positive"
+      - "Somewhat more positive"
+      - "No change"
+      - "Somewhat more negative"
+      - "Much more negative"
+
+  - id: "research_impact_expectation"
+    label: "Do you expect AI co-scientist tools to have a measurable impact on your research productivity?"
+    type: "single_select"
+    required: true
+    options:
+      - "Yes, significant impact (>25% productivity increase)"
+      - "Yes, moderate impact (10-25% productivity increase)"
+      - "Yes, small impact (5-10% productivity increase)"
+      - "Minimal impact (<5% productivity increase)"
+      - "No impact expected"
+      - "Too early to tell"
+
+  - id: "collaboration_interest"
+    label: "Are you interested in participating in follow-up research and discussion?"
+    type: "single_select"
+    required: false
+    options:
+      - "Yes, I'm very interested"
+      - "Yes, I'm somewhat interested"
+      - "Maybe, depending on the commitment"
+      - "No, I'm not interested"
+
+  - id: "follow_up_timeline"
+    label: "If interested in follow-up research, when would be the best time to contact you?"
+    type: "single_select"
+    required: false
+    show_if: "collaboration_interest in ['Yes, I\\'m very interested', 'Yes, I\\'m somewhat interested', 'Maybe, depending on the commitment']"
+    options:
+      - "3 months after workshop"
+      - "6 months after workshop"
+      - "1 year after workshop"
+      - "Any time is fine"
+
+  - id: "additional_feedback"
+    label: "Any additional feedback or suggestions for improving future workshops?"
+    type: "textarea"
+    required: false
+    placeholder: "Comments about content, format, duration, logistics, or anything else that would help us improve"
+
+  - id: "success_metrics"
+    label: "How should we measure the success of future AI workshops? (Free response)"
+    type: "textarea"
+    required: false
+    placeholder: "What outcomes or metrics would indicate a successful workshop to you?"
