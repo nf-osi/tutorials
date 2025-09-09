@@ -1,18 +1,5 @@
 ## AI Co-scientist Workshop Featuring Biomni
 
-### Survey Framework
-
-**Pre-Workshop Survey** (`workshop_registration_and_presurvey.yaml`)
-- Captures participant backgrounds, current AI tool familiarity, and expectations
-- Enables workshop customization based on audience experience levels
-- Establishes baseline sentiment and knowledge for impact measurement
-
-**Post-Workshop Survey** (`workshop_postsurvey.yaml`) 
-- Measures learning outcomes, satisfaction, and confidence changes
-- Tracks intent to contribute/reuse data in Synapse following AI tool integration
-- Provides year-over-year comparison data for workshop effectiveness
-- Identifies barriers to adoption and areas for future improvement
-
 ### Workshop Structure
 
 **Blurb**: This 90-minute workshop brings in the community for agentic co-scientist education and evaluation while demoing Biomni and the new Synapse integration through live examples:
@@ -34,3 +21,16 @@ This innovative approach demonstrates real-world AI co-scientist applications wh
 - Live registration and survey form: https://docs.google.com/forms/d/1G_3IOl0VXXV4z-vHqQ7xG0CiK1yHWuBk2t7UIPjg4k0/preview
 - Workshop outline: `workshop_outline.md`
 - Learning objectives: `learning_objectives.md`
+
+#### Surveys
+
+**Pre-Workshop Survey** (`workshop_registration_and_presurvey.yaml`)
+- Captures participant backgrounds, current AI tool familiarity, and expectations
+- Enables workshop customization based on audience experience levels
+- Establishes baseline sentiment and knowledge for impact measurement
+
+**Post-Workshop Survey** (`workshop_postsurvey.yaml`) 
+- Measures learning outcomes, satisfaction, and confidence changes
+- Tracks intent to contribute/reuse data in Synapse following AI tool integration
+- Provides year-over-year comparison data for workshop effectiveness
+- Identifies barriers to adoption and areas for future improvement
