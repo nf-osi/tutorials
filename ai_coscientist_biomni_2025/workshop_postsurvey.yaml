@@ -56,23 +56,6 @@ fields:
       - "Somewhat less confident"
       - "Much less confident"
 
-  - id: "tools_learned"
-    label: "Which tools or platforms did you learn about in this workshop? (Select all that apply)"
-    type: "multi_select"
-    required: true
-    options:
-      - "Biomni platform"
-      - "Literature review automation"
-      - "Experimental design assistance"
-      - "Data analysis workflows"
-      - "Hypothesis generation techniques"
-      - "Protocol optimization"
-      - "Laboratory automation integration"
-      - "Research paper writing assistance"
-      - "Grant writing support"
-      - "Other AI research tools"
-      - "None of the above"
-
   - id: "synapse_contribution_likelihood"
     label: "How much did learning about AI co-scientist tools and Synapse integration make you more likely to contribute data in Synapse?"
     type: "single_select"
