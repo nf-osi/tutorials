@@ -15,7 +15,7 @@
 
 ### Workshop Structure
 
-**Community-Driven Approach**: This 90-minute workshop brings in the community for agentic co-scientist education and evaluation while showcasing Biomni and the Synapse integration through live demonstrations:
+**Blurb**: This 90-minute workshop brings in the community for agentic co-scientist education and evaluation while demoing Biomni and the new Synapse integration through live examples:
 
 1. **Biomni + Synapse Data Integration Demo** - How Biomni searches and utilizes data within Synapse to answer questions
 2. **Conditional Demo Options**:
@@ -29,9 +29,8 @@
 
 This innovative approach demonstrates real-world AI co-scientist applications while prioritizing authentic community collaboration and peer evaluation.
 
-### Links
+### Materials
 
 - Live registration and survey form: https://docs.google.com/forms/d/1G_3IOl0VXXV4z-vHqQ7xG0CiK1yHWuBk2t7UIPjg4k0/preview
 - Workshop outline: `workshop_outline.md`
 - Learning objectives: `learning_objectives.md`
-- Postworkshop survey: TBD
