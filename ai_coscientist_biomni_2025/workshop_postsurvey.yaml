@@ -78,12 +78,6 @@ fields:
       - "Somewhat less likely"
       - "Much less likely"
 
-  - id: "specific_implementation"
-    label: "What specific AI tools or applications do you plan to implement first?"
-    type: "textarea"
-    required: false
-    placeholder: "e.g., Using Biomni for literature reviews, implementing automated data analysis workflows, etc."
-
   - id: "barriers_to_adoption"
     label: "What are the main barriers you see to adopting AI co-scientist tools? (Select all that apply)"
     type: "multi_select"
@@ -146,7 +140,7 @@ fields:
     label: "What topics would you like to see covered in future AI co-scientist workshops?"
     type: "textarea"
     required: false
-    placeholder: "e.g., other options/alternatives, advanced configuration, regulatory considerations, collaboration workflows, etc."
+    placeholder: "e.g., other tool/platform alternatives, advanced configuration, collaboration workflows, etc."
 
   - id: "sentiment_change"
     label: "How has your sentiment toward AI in scientific research changed after this workshop?"
