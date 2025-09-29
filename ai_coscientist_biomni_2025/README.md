@@ -18,7 +18,7 @@ This innovative approach demonstrates real-world AI co-scientist applications wh
 
 ### Materials
 
-- Live registration and survey form: https://docs.google.com/forms/d/1G_3IOl0VXXV4z-vHqQ7xG0CiK1yHWuBk2t7UIPjg4k0/preview
+- Live registration and survey form: [**Register here**](https://forms.gle/xKheaSrr6qhywR8q7)
 - Workshop outline: `workshop_outline.md`
 - Learning objectives: `learning_objectives.md`
 
